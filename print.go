@@ -40,7 +40,7 @@ func (meta PrintMeta) PrintSection1() {
 	fmt.Printf("It's day %d of the year(%d). That's already %.1f%%\n", meta.thisDay, meta.totalDays, meta.ratio*100)
 }
 
-func (meta PrintMeta) PrintSectionProgress() (err error) {
+func (meta PrintMeta) PrintSectionProgress() {
 	fmt.Printf("[")
 
 	for i := 0; i < meta.beforeWidth; i++ {
@@ -52,6 +52,4 @@ func (meta PrintMeta) PrintSectionProgress() (err error) {
 	}
 
 	fmt.Printf("]\n")
-
-	return nil
 }
