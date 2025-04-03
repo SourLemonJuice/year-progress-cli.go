@@ -10,7 +10,7 @@ type PrintMeta struct {
 	totalDays   int
 	thisDay     int
 	ratio       float32
-	width       int
+	insideWidth int
 	beforeWidth int
 }
 
@@ -27,11 +27,11 @@ func PrintMetaNew(t time.Time, width int) (meta PrintMeta, err error) {
 
 	meta.ratio = float32(meta.thisDay) / float32(meta.totalDays)
 
-	meta.width = width
-	if meta.width < 3 {
+	if width < 3 {
 		return meta, fmt.Errorf(APP_NAME + ": width less than 3")
 	}
-	meta.beforeWidth = int(float32(width) * meta.ratio)
+	meta.insideWidth = width - 2
+	meta.beforeWidth = int(float32(meta.insideWidth) * meta.ratio)
 
 	return meta, nil
 }
@@ -43,11 +43,11 @@ func (meta PrintMeta) PrintSection1() {
 func (meta PrintMeta) PrintSectionProgress() {
 	fmt.Printf("[")
 
-	for i := 0; i < meta.beforeWidth; i++ {
+	for range meta.beforeWidth {
 		fmt.Printf("-")
 	}
 
-	for i := 0; i < meta.width-meta.beforeWidth; i++ {
+	for range meta.insideWidth - meta.beforeWidth {
 		fmt.Printf("#")
 	}
 

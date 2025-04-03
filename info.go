@@ -6,7 +6,7 @@ import (
 )
 
 func InfoHelp() error {
-	fmt.Println("Usage: " + APP_NAME + " [--help] [--version]")
+	fmt.Printf("Usage: " + APP_NAME + " [--help] [--version] [--width]\n")
 	fmt.Printf("\nOptions:\n")
 	flag.PrintDefaults()
 
