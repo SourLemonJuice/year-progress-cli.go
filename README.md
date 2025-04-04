@@ -8,7 +8,7 @@ I want to use those rewrites to improve my language skills.
 Build the executable file by running:
 
 ```text
-go build -o <file_path> ./...
+go build -o <file_path> .
 # or use script to build to build/year-progress.go.bin
 ./make.sh
 ```
@@ -16,7 +16,7 @@ go build -o <file_path> ./...
 ## Version semantic
 
 ```text
-Version <upstream_major>.<upstream_minor>-<rewrite_major>.<rewrite_patch>
+<upstream_major>.<upstream_minor>-<rewrite_major>.<rewrite_patch>
 ```
 
 ## License
