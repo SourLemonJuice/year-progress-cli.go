@@ -16,7 +16,7 @@ func InfoHelp() error {
 }
 
 func InfoVersion() error {
-	fmt.Println("v0.0.0")
+	fmt.Println(define.APP_VERSION)
 
 	return nil
 }
