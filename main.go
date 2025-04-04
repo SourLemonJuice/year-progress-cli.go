@@ -5,30 +5,31 @@ import (
 	"fmt"
 	"os"
 	"time"
-)
 
-const APP_NAME string = "year-progress.go"
-const PROGRESS_DEFAULT_WIDTH int = 80 * 0.6
+	"github.com/SourLemonJuice/year-progress-cli.go/define"
+	"github.com/SourLemonJuice/year-progress-cli.go/info"
+	"github.com/SourLemonJuice/year-progress-cli.go/progress"
+)
 
 func main() {
 	var err error
 
 	helpFlag := flag.Bool("help", false, "Print help")
 	versionFlag := flag.Bool("version", false, "Print Version")
-	widthFlag := flag.Int("width", PROGRESS_DEFAULT_WIDTH, "Width")
+	widthFlag := flag.Int("width", define.PROGRESS_DEFAULT_WIDTH, "Width")
 
 	flag.Parse()
 
 	switch {
 	case *helpFlag:
-		InfoHelp()
+		info.InfoHelp()
 		os.Exit(0)
 	case *versionFlag:
-		InfoVersion()
+		info.InfoVersion()
 		os.Exit(0)
 	}
 
-	meta, err := PrintMetaNew(time.Now(), *widthFlag)
+	meta, err := progress.PrintMetaNew(time.Now(), *widthFlag)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)

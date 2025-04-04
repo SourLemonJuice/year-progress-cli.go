@@ -1,12 +1,14 @@
-package main
+package info
 
 import (
 	"flag"
 	"fmt"
+
+	"github.com/SourLemonJuice/year-progress-cli.go/define"
 )
 
 func InfoHelp() error {
-	fmt.Printf("Usage: " + APP_NAME + " [--help] [--version] [--width]\n")
+	fmt.Printf("Usage: " + define.APP_NAME + " [--help] [--version] [--width]\n")
 	fmt.Printf("\nOptions:\n")
 	flag.PrintDefaults()
 

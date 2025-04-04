@@ -1,8 +1,10 @@
-package main
+package progress
 
 import (
 	"fmt"
 	"time"
+
+	"github.com/SourLemonJuice/year-progress-cli.go/define"
 )
 
 type PrintMeta struct {
@@ -27,7 +29,7 @@ func PrintMetaNew(t time.Time, width int) (meta PrintMeta, err error) {
 	meta.ratio = float32(meta.thisDay) / float32(meta.totalDays)
 
 	if width < 3 {
-		return meta, fmt.Errorf(APP_NAME + ": width less than 3")
+		return meta, fmt.Errorf(define.APP_NAME + ": width less than 3")
 	}
 	meta.insideWidth = width - 2
 
